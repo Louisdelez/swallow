@@ -1,0 +1,105 @@
+{
+  "app": {
+    "name": "Swallow",
+    "tagline": "Your browser, your services"
+  },
+  "search": {
+    "placeholder": "Search the Web",
+    "button": "Search",
+    "lucky": "I'm Feeling Lucky"
+  },
+  "nav": {
+    "about": "About",
+    "store": "Extensions",
+    "settings": "Settings",
+    "account": "Account",
+    "apps": "Apps",
+    "allApps": "Your favorites"
+  },
+  "services": {
+    "email": "Email",
+    "calendar": "Calendar",
+    "drive": "Storage",
+    "docs": "Documents",
+    "maps": "Maps",
+    "translate": "Translate",
+    "photos": "Photos",
+    "videos": "Videos",
+    "news": "News",
+    "notes": "Notes",
+    "music": "Music",
+    "passwords": "Passwords",
+    "store": "Store",
+    "ai": "AI",
+    "contacts": "Contacts",
+    "sheets": "Spreadsheet",
+    "slides": "Presentation",
+    "meet": "Video Conferencing",
+    "forms": "Forms",
+    "shopping": "Shopping",
+    "finance": "Finance",
+    "books": "Books",
+    "keep": "Quick Notes",
+    "sites": "Website Builder",
+    "earth": "Earth Globe",
+    "blogger": "Blog",
+    "chat": "Messaging",
+    "search": "Search"
+  },
+  "settings": {
+    "title": "Settings",
+    "appearance": "Appearance",
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System",
+    "language": "Language",
+    "services": "Services",
+    "servicesDesc": "Choose your preferred services for each category",
+    "chooseService": "Choose a service",
+    "account": "Account",
+    "save": "Save",
+    "saved": "Saved!",
+    "reset": "Reset",
+    "searchEngine": "Search engine",
+    "customServices": "Customize services",
+    "widgets": "Widgets",
+    "widgetsDesc": "Enable or disable widgets displayed on the home page"
+  },
+  "widgets": {
+    "clock": "Clock",
+    "weather": "Weather",
+    "calculator": "Calculator",
+    "currency": "Currency Converter",
+    "locationRequired": "Location required",
+    "retry": "Retry"
+  },
+  "auth": {
+    "login": "Sign in",
+    "register": "Create account",
+    "logout": "Sign out",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "displayName": "Display name",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "No account?",
+    "hasAccount": "Already have an account?",
+    "loginSuccess": "Signed in successfully",
+    "registerSuccess": "Account created successfully",
+    "profile": "Profile",
+    "syncEnabled": "Sync enabled",
+    "syncDisabled": "Sign in to sync your preferences"
+  },
+  "errors": {
+    "notFound": "This page doesn't exist",
+    "backHome": "Back to home",
+    "passwordMismatch": "Passwords do not match"
+  },
+  "footer": {
+    "country": "United Kingdom",
+    "about": "About",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  }
+}

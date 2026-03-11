@@ -1,0 +1,56 @@
+.notfound-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--bg-primary);
+}
+
+.notfound-container {
+  text-align: center;
+}
+
+.notfound-code {
+  font-size: 120px;
+  font-weight: 700;
+  letter-spacing: -4px;
+  background: linear-gradient(135deg, #4285f4, #ea4335, #fbbc04, #34a853);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.notfound-message {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.notfound-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.notfound-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.15s;
+}
+
+.notfound-btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.notfound-btn-primary:hover {
+  background: var(--accent-hover);
+}

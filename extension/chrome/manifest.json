@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Swallow",
+  "version": "1.0.0",
+  "description": "Votre écosystème de services personnalisé",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": ["storage", "activeTab"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Swallow",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["content.css"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/services/*.png", "icons/search/*.png", "icons/maps/*.png", "icons/videos/*.png", "icons/store/*.png", "icons/email/*.png", "icons/drive/*.png", "icons/calendar/*.png", "icons/translate/*.png", "icons/passwords/*.png", "icons/ai/*.png", "icons/news/*.png", "icons/photos/*.png", "icons/contacts/*.png", "icons/docs/*.png", "icons/sheets/*.png", "icons/slides/*.png", "icons/meet/*.png", "icons/forms/*.png", "icons/shopping/*.png", "icons/finance/*.png", "icons/books/*.png", "icons/keep/*.png", "icons/sites/*.png", "icons/earth/*.png", "icons/blogger/*.png", "icons/chat/*.png", "icons/music/*.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

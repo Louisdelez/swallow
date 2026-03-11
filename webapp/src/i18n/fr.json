@@ -1,0 +1,105 @@
+{
+  "app": {
+    "name": "Swallow",
+    "tagline": "Votre navigateur, vos services"
+  },
+  "search": {
+    "placeholder": "Rechercher sur le Web",
+    "button": "Rechercher",
+    "lucky": "J'ai de la chance"
+  },
+  "nav": {
+    "about": "À propos",
+    "store": "Extensions",
+    "settings": "Paramètres",
+    "account": "Compte",
+    "apps": "Applications",
+    "allApps": "Vos favoris"
+  },
+  "services": {
+    "email": "Email",
+    "calendar": "Calendrier",
+    "drive": "Stockage",
+    "docs": "Documents",
+    "maps": "Cartes",
+    "translate": "Traduction",
+    "photos": "Photos",
+    "videos": "Vidéos",
+    "news": "Actualités",
+    "notes": "Notes",
+    "music": "Musique",
+    "passwords": "Mots de passe",
+    "store": "Magasin",
+    "ai": "IA",
+    "contacts": "Contacts",
+    "sheets": "Tableur",
+    "slides": "Présentation",
+    "meet": "Visioconférence",
+    "forms": "Formulaires",
+    "shopping": "Shopping",
+    "finance": "Finance",
+    "books": "Livres",
+    "keep": "Notes rapides",
+    "sites": "Création de sites",
+    "earth": "Globe terrestre",
+    "blogger": "Blog",
+    "chat": "Messagerie",
+    "search": "Recherche"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "appearance": "Apparence",
+    "theme": "Thème",
+    "themeLight": "Clair",
+    "themeDark": "Sombre",
+    "themeSystem": "Système",
+    "language": "Langue",
+    "services": "Services",
+    "servicesDesc": "Choisissez vos services préférés pour chaque catégorie",
+    "chooseService": "Choisir un service",
+    "account": "Compte",
+    "save": "Enregistrer",
+    "saved": "Enregistré !",
+    "reset": "Réinitialiser",
+    "searchEngine": "Moteur de recherche",
+    "customServices": "Personnaliser les services",
+    "widgets": "Widgets",
+    "widgetsDesc": "Activez ou désactivez les widgets affichés sur la page d'accueil"
+  },
+  "widgets": {
+    "clock": "Horloge",
+    "weather": "Météo",
+    "calculator": "Calculatrice",
+    "currency": "Convertisseur de devises",
+    "locationRequired": "Localisation requise",
+    "retry": "Réessayer"
+  },
+  "auth": {
+    "login": "Se connecter",
+    "register": "Créer un compte",
+    "logout": "Se déconnecter",
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "displayName": "Nom d'affichage",
+    "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Pas de compte ?",
+    "hasAccount": "Déjà un compte ?",
+    "loginSuccess": "Connexion réussie",
+    "registerSuccess": "Compte créé avec succès",
+    "profile": "Profil",
+    "syncEnabled": "Synchronisation activée",
+    "syncDisabled": "Connectez-vous pour synchroniser vos préférences"
+  },
+  "errors": {
+    "notFound": "Cette page n'existe pas",
+    "backHome": "Retour à l'accueil",
+    "passwordMismatch": "Les mots de passe ne correspondent pas"
+  },
+  "footer": {
+    "country": "France",
+    "about": "À propos",
+    "privacy": "Confidentialité",
+    "terms": "Conditions"
+  }
+}

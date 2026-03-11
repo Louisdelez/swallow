@@ -1,0 +1,105 @@
+{
+  "app": {
+    "name": "Swallow",
+    "tagline": "Il tuo browser, i tuoi servizi"
+  },
+  "search": {
+    "placeholder": "Cerca nel Web",
+    "button": "Cerca",
+    "lucky": "Mi sento fortunato"
+  },
+  "nav": {
+    "about": "Informazioni",
+    "store": "Estensioni",
+    "settings": "Impostazioni",
+    "account": "Account",
+    "apps": "App",
+    "allApps": "I tuoi preferiti"
+  },
+  "services": {
+    "email": "Email",
+    "calendar": "Calendario",
+    "drive": "Archiviazione",
+    "docs": "Documenti",
+    "maps": "Mappe",
+    "translate": "Traduttore",
+    "photos": "Foto",
+    "videos": "Video",
+    "news": "Notizie",
+    "notes": "Note",
+    "music": "Musica",
+    "passwords": "Password",
+    "store": "Negozio",
+    "ai": "IA",
+    "contacts": "Contatti",
+    "sheets": "Foglio di calcolo",
+    "slides": "Presentazione",
+    "meet": "Videoconferenza",
+    "forms": "Moduli",
+    "shopping": "Shopping",
+    "finance": "Finanza",
+    "books": "Libri",
+    "keep": "Note rapide",
+    "sites": "Creazione siti",
+    "earth": "Globo terrestre",
+    "blogger": "Blog",
+    "chat": "Messaggistica",
+    "search": "Ricerca"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "appearance": "Aspetto",
+    "theme": "Tema",
+    "themeLight": "Chiaro",
+    "themeDark": "Scuro",
+    "themeSystem": "Sistema",
+    "language": "Lingua",
+    "services": "Servizi",
+    "servicesDesc": "Scegli i tuoi servizi preferiti per ogni categoria",
+    "chooseService": "Scegli un servizio",
+    "account": "Account",
+    "save": "Salva",
+    "saved": "Salvato!",
+    "reset": "Ripristina",
+    "searchEngine": "Motore di ricerca",
+    "customServices": "Personalizza servizi",
+    "widgets": "Widget",
+    "widgetsDesc": "Attiva o disattiva i widget visualizzati nella pagina iniziale"
+  },
+  "widgets": {
+    "clock": "Orologio",
+    "weather": "Meteo",
+    "calculator": "Calcolatrice",
+    "currency": "Convertitore di valuta",
+    "locationRequired": "Posizione richiesta",
+    "retry": "Riprova"
+  },
+  "auth": {
+    "login": "Accedi",
+    "register": "Crea account",
+    "logout": "Esci",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Conferma password",
+    "displayName": "Nome visualizzato",
+    "forgotPassword": "Password dimenticata?",
+    "noAccount": "Non hai un account?",
+    "hasAccount": "Hai già un account?",
+    "loginSuccess": "Accesso riuscito",
+    "registerSuccess": "Account creato con successo",
+    "profile": "Profilo",
+    "syncEnabled": "Sincronizzazione attivata",
+    "syncDisabled": "Accedi per sincronizzare le tue preferenze"
+  },
+  "errors": {
+    "notFound": "Questa pagina non esiste",
+    "backHome": "Torna alla home",
+    "passwordMismatch": "Le password non corrispondono"
+  },
+  "footer": {
+    "country": "Italia",
+    "about": "Informazioni",
+    "privacy": "Privacy",
+    "terms": "Termini"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "app": {
+    "name": "Swallow",
+    "tagline": "Ihr Browser, Ihre Dienste"
+  },
+  "search": {
+    "placeholder": "Im Web suchen",
+    "button": "Suchen",
+    "lucky": "Auf gut Glück!"
+  },
+  "nav": {
+    "about": "Über uns",
+    "store": "Erweiterungen",
+    "settings": "Einstellungen",
+    "account": "Konto",
+    "apps": "Apps",
+    "allApps": "Ihre Favoriten"
+  },
+  "services": {
+    "email": "E-Mail",
+    "calendar": "Kalender",
+    "drive": "Speicher",
+    "docs": "Dokumente",
+    "maps": "Karten",
+    "translate": "Übersetzer",
+    "photos": "Fotos",
+    "videos": "Videos",
+    "news": "Nachrichten",
+    "notes": "Notizen",
+    "music": "Musik",
+    "passwords": "Passwörter",
+    "store": "Store",
+    "ai": "KI",
+    "contacts": "Kontakte",
+    "sheets": "Tabellen",
+    "slides": "Präsentation",
+    "meet": "Videokonferenz",
+    "forms": "Formulare",
+    "shopping": "Einkaufen",
+    "finance": "Finanzen",
+    "books": "Bücher",
+    "keep": "Schnellnotizen",
+    "sites": "Website-Baukasten",
+    "earth": "Erdkugel",
+    "blogger": "Blog",
+    "chat": "Nachrichten",
+    "search": "Suche"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "appearance": "Erscheinungsbild",
+    "theme": "Design",
+    "themeLight": "Hell",
+    "themeDark": "Dunkel",
+    "themeSystem": "System",
+    "language": "Sprache",
+    "services": "Dienste",
+    "servicesDesc": "Wählen Sie Ihre bevorzugten Dienste für jede Kategorie",
+    "chooseService": "Dienst auswählen",
+    "account": "Konto",
+    "save": "Speichern",
+    "saved": "Gespeichert!",
+    "reset": "Zurücksetzen",
+    "searchEngine": "Suchmaschine",
+    "customServices": "Dienste anpassen",
+    "widgets": "Widgets",
+    "widgetsDesc": "Aktivieren oder deaktivieren Sie die auf der Startseite angezeigten Widgets"
+  },
+  "widgets": {
+    "clock": "Uhr",
+    "weather": "Wetter",
+    "calculator": "Taschenrechner",
+    "currency": "Währungsrechner",
+    "locationRequired": "Standort erforderlich",
+    "retry": "Erneut versuchen"
+  },
+  "auth": {
+    "login": "Anmelden",
+    "register": "Konto erstellen",
+    "logout": "Abmelden",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "displayName": "Anzeigename",
+    "forgotPassword": "Passwort vergessen?",
+    "noAccount": "Kein Konto?",
+    "hasAccount": "Bereits ein Konto?",
+    "loginSuccess": "Erfolgreich angemeldet",
+    "registerSuccess": "Konto erfolgreich erstellt",
+    "profile": "Profil",
+    "syncEnabled": "Synchronisierung aktiviert",
+    "syncDisabled": "Melden Sie sich an, um Ihre Einstellungen zu synchronisieren"
+  },
+  "errors": {
+    "notFound": "Diese Seite existiert nicht",
+    "backHome": "Zurück zur Startseite",
+    "passwordMismatch": "Die Passwörter stimmen nicht überein"
+  },
+  "footer": {
+    "country": "Deutschland",
+    "about": "Über uns",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen"
+  }
+}

@@ -1,0 +1,278 @@
+/* Swallow Top Bar - Content Script Styles */
+/* Matches Google's top bar: transparent, same bg as page, no border */
+
+#swallow-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 13px;
+  z-index: 2147483647;
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.65);
+  border: none;
+  box-sizing: border-box;
+}
+
+/* Dark mode - forced */
+#swallow-topbar[data-swallow-theme="dark"] {
+  background: #1f1f1f;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* System dark mode */
+@media (prefers-color-scheme: dark) {
+  #swallow-topbar:not([data-swallow-theme="light"]) {
+    background: #1f1f1f;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.swallow-bar-left,
+.swallow-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swallow-bar-link {
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.swallow-bar-link:hover {
+  color: rgba(0, 0, 0, 0.87);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+#swallow-topbar[data-swallow-theme="dark"] .swallow-bar-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  #swallow-topbar:not([data-swallow-theme="light"]) .swallow-bar-link:hover {
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+
+.swallow-bar-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: inherit;
+  transition: background-color 0.15s;
+  padding: 0;
+}
+
+.swallow-bar-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+#swallow-topbar[data-swallow-theme="dark"] .swallow-bar-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  #swallow-topbar:not([data-swallow-theme="light"]) .swallow-bar-icon-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.swallow-bar-avatar {
+  width: 32px;
+  height: 32px;
+  background: #4285f4;
+  color: white;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.swallow-bar-avatar:hover {
+  opacity: 0.85;
+  background: #4285f4;
+}
+
+/* Login button */
+.swallow-bar-login {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  background: #4285f4;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s, box-shadow 0.15s;
+  margin-left: 4px;
+}
+
+.swallow-bar-login:hover {
+  background: #3367d6;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+#swallow-topbar[data-swallow-theme="dark"] .swallow-bar-login {
+  background: #8ab4f8;
+  color: #1f1f1f;
+}
+
+#swallow-topbar[data-swallow-theme="dark"] .swallow-bar-login:hover {
+  background: #aecbfa;
+}
+
+@media (prefers-color-scheme: dark) {
+  #swallow-topbar:not([data-swallow-theme="light"]) .swallow-bar-login {
+    background: #8ab4f8;
+    color: #1f1f1f;
+  }
+  #swallow-topbar:not([data-swallow-theme="light"]) .swallow-bar-login:hover {
+    background: #aecbfa;
+  }
+}
+
+/* Apps Drawer */
+.swallow-apps-drawer {
+  position: absolute;
+  top: 52px;
+  right: 50px;
+  width: 340px;
+  max-height: 480px;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  padding: 16px;
+  display: none;
+  z-index: 2147483647;
+}
+
+.swallow-apps-drawer-open {
+  display: block;
+  animation: swallow-fadeIn 0.15s ease;
+}
+
+@keyframes swallow-fadeIn {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+#swallow-topbar[data-swallow-theme="dark"] .swallow-apps-drawer {
+  background: #2d2d2d;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  #swallow-topbar:not([data-swallow-theme="light"]) .swallow-apps-drawer {
+    background: #2d2d2d;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+}
+
+.swallow-apps-header {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 4px 8px 14px;
+  color: #202124;
+}
+
+#swallow-topbar[data-swallow-theme="dark"] .swallow-apps-header {
+  color: #e8eaed;
+}
+
+@media (prefers-color-scheme: dark) {
+  #swallow-topbar:not([data-swallow-theme="light"]) .swallow-apps-header {
+    color: #e8eaed;
+  }
+}
+
+.swallow-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.swallow-app-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 8px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.15s;
+}
+
+.swallow-app-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+#swallow-topbar[data-swallow-theme="dark"] .swallow-app-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  #swallow-topbar:not([data-swallow-theme="light"]) .swallow-app-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+.swallow-app-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.swallow-app-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.swallow-app-label {
+  font-size: 11px;
+  text-align: center;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #5f6368;
+}
+
+#swallow-topbar[data-swallow-theme="dark"] .swallow-app-label {
+  color: #9aa0a6;
+}
+
+@media (prefers-color-scheme: dark) {
+  #swallow-topbar:not([data-swallow-theme="light"]) .swallow-app-label {
+    color: #9aa0a6;
+  }
+}

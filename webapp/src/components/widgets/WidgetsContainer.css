@@ -1,0 +1,17 @@
+.widgets-container {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10;
+  max-height: calc(100% - 80px);
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .widgets-container {
+    display: none;
+  }
+}
