@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swallow — Votre navigateur, votre univers</title>
+  <meta name="description" content="Swallow transforme votre page d'accueil en un portail personnalisable. Services, widgets, themes et synchronisation en temps reel." />
+  <link rel="icon" type="image/png" href="../extension/chrome/icons/icon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="../extension/chrome/icons/icon-48.png" alt="Swallow" width="32" height="32" />
+        <span>Swallow</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Fonctionnalites</a>
+        <a href="#services">Services</a>
+        <a href="#extensions">Extensions</a>
+        <a href="#stack">Stack</a>
+        <a href="https://github.com/Louisdelez/swallow" target="_blank" rel="noopener" class="nav-github">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Open Source &middot; MIT License</div>
+      <h1>Votre navigateur,<br><span class="gradient-text">votre univers.</span></h1>
+      <p class="hero-sub">Swallow transforme votre page d'accueil en un portail entierement personnalisable. Services, widgets, themes et synchronisation en temps reel entre tous vos appareils.</p>
+      <div class="hero-actions">
+        <a href="https://github.com/Louisdelez/swallow" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          Voir sur GitHub
+        </a>
+        <a href="#features" class="btn btn-secondary">Decouvrir</a>
+      </div>
+      <div class="hero-preview">
+        <div class="preview-window">
+          <div class="preview-titlebar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="preview-url">localhost:5173</span>
+          </div>
+          <div class="preview-body">
+            <div class="preview-topbar">
+              <span>Gmail</span>
+              <span>YouTube</span>
+              <span>Maps</span>
+              <span>Drive</span>
+              <span class="preview-apps-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="4" cy="4" r="2.5"/><circle cx="12" cy="4" r="2.5"/><circle cx="20" cy="4" r="2.5"/><circle cx="4" cy="12" r="2.5"/><circle cx="12" cy="12" r="2.5"/><circle cx="20" cy="12" r="2.5"/><circle cx="4" cy="20" r="2.5"/><circle cx="12" cy="20" r="2.5"/><circle cx="20" cy="20" r="2.5"/></svg>
+              </span>
+            </div>
+            <div class="preview-search">
+              <div class="preview-logo">Swallow</div>
+              <div class="preview-searchbar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <span>Rechercher sur le Web</span>
+              </div>
+            </div>
+            <div class="preview-widgets">
+              <div class="preview-widget">14:32</div>
+              <div class="preview-widget">18&deg;C Paris</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Features -->
+  <section id="features" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Tout ce dont vous avez besoin</h2>
+        <p>Un ecosysteme complet pour votre navigation quotidienne.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <h3>Multi-moteurs</h3>
+          <p>Google, Bing, DuckDuckGo, Brave, Ecosia, Qwant, Startpage... Choisissez votre moteur de recherche prefere.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </div>
+          <h3>Widgets</h3>
+          <p>Horloge, meteo, calculatrice, convertisseur de devises. Ajoutez les widgets qui vous sont utiles.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>30+ services</h3>
+          <p>Email, calendrier, drive, maps, traduction, IA, musique, videos... Configurez chaque categorie avec votre fournisseur favori.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+          </div>
+          <h3>Themes</h3>
+          <p>Mode clair, sombre ou automatique. L'interface s'adapte a vos preferences et a votre systeme.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/><path d="M12 2v4M2 12h4M12 18v4M18 12h4"/></svg>
+          </div>
+          <h3>Sync temps reel</h3>
+          <p>Vos preferences se synchronisent instantanement entre la webapp, l'extension et tous vos appareils connectes.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </div>
+          <h3>Drag & Drop</h3>
+          <p>Reordonnez vos applications par glisser-deposer dans le popup. Votre ordre est sauvegarde automatiquement.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20"/><path d="M5 20V10l7-7 7 7v10"/><path d="M9 20v-6h6v6"/></svg>
+          </div>
+          <h3>TopBar partout</h3>
+          <p>L'extension injecte une barre de navigation sur toutes vos pages. Acces rapide a vos services, partout.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>5 langues</h3>
+          <p>Interface disponible en francais, anglais, allemand, italien et espagnol. Changez de langue en un clic.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Securise</h3>
+          <p>CORS whitelist, rate limiting, validation des entrees, JWT, Helmet. La securite est integree a chaque couche.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Vos services, votre choix</h2>
+        <p>Pour chaque categorie, choisissez le fournisseur qui vous convient.</p>
+      </div>
+      <div class="services-showcase">
+        <div class="service-category">
+          <h4>Recherche</h4>
+          <div class="service-logos">
+            <img src="../extension/chrome/icons/search/google.png" alt="Google" title="Google" />
+            <img src="../extension/chrome/icons/search/bing.png" alt="Bing" title="Bing" />
+            <img src="../extension/chrome/icons/search/duckduckgo.png" alt="DuckDuckGo" title="DuckDuckGo" />
+            <img src="../extension/chrome/icons/search/brave.png" alt="Brave" title="Brave" />
+            <img src="../extension/chrome/icons/search/ecosia.png" alt="Ecosia" title="Ecosia" />
+            <img src="../extension/chrome/icons/search/qwant.png" alt="Qwant" title="Qwant" />
+          </div>
+        </div>
+        <div class="service-category">
+          <h4>Email</h4>
+          <div class="service-logos">
+            <img src="../extension/chrome/icons/email/gmail.png" alt="Gmail" title="Gmail" />
+            <img src="../extension/chrome/icons/email/outlook.png" alt="Outlook" title="Outlook" />
+            <img src="../extension/chrome/icons/email/protonmail.png" alt="ProtonMail" title="ProtonMail" />
+            <img src="../extension/chrome/icons/email/yahoo.png" alt="Yahoo Mail" title="Yahoo Mail" />
+          </div>
+        </div>
+        <div class="service-category">
+          <h4>Videos</h4>
+          <div class="service-logos">
+            <img src="../extension/chrome/icons/videos/youtube.png" alt="YouTube" title="YouTube" />
+            <img src="../extension/chrome/icons/videos/dailymotion.png" alt="Dailymotion" title="Dailymotion" />
+            <img src="../extension/chrome/icons/videos/twitch.png" alt="Twitch" title="Twitch" />
+            <img src="../extension/chrome/icons/videos/vimeo.png" alt="Vimeo" title="Vimeo" />
+          </div>
+        </div>
+        <div class="service-category">
+          <h4>Musique</h4>
+          <div class="service-logos">
+            <img src="../extension/chrome/icons/music/youtube.png" alt="YouTube Music" title="YouTube Music" />
+            <img src="../extension/chrome/icons/music/spotify.png" alt="Spotify" title="Spotify" />
+            <img src="../extension/chrome/icons/music/deezer.png" alt="Deezer" title="Deezer" />
+            <img src="../extension/chrome/icons/music/apple.png" alt="Apple Music" title="Apple Music" />
+          </div>
+        </div>
+        <div class="service-category">
+          <h4>Cartes</h4>
+          <div class="service-logos">
+            <img src="../extension/chrome/icons/maps/google.png" alt="Google Maps" title="Google Maps" />
+            <img src="../extension/chrome/icons/maps/waze.png" alt="Waze" title="Waze" />
+            <img src="../extension/chrome/icons/maps/openstreetmap.png" alt="OpenStreetMap" title="OpenStreetMap" />
+          </div>
+        </div>
+        <div class="service-category">
+          <h4>IA</h4>
+          <div class="service-logos">
+            <img src="../extension/chrome/icons/ai/gemini.png" alt="Gemini" title="Gemini" />
+            <img src="../extension/chrome/icons/ai/chatgpt.png" alt="ChatGPT" title="ChatGPT" />
+            <img src="../extension/chrome/icons/ai/claude.png" alt="Claude" title="Claude" />
+            <img src="../extension/chrome/icons/ai/copilot.png" alt="Copilot" title="Copilot" />
+            <img src="../extension/chrome/icons/ai/mistral.png" alt="Mistral" title="Mistral" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Extensions -->
+  <section id="extensions" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Extensions navigateur</h2>
+        <p>Installez l'extension pour profiter de Swallow sur chaque page.</p>
+      </div>
+      <div class="extensions-grid">
+        <div class="extension-card">
+          <div class="extension-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#4285f4" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="#4285f4"/><path d="M12 2a10 10 0 014.9 1.28L12 12" fill="#ea4335"/><path d="M16.9 3.28A10 10 0 0122 12H12" fill="#fbbc04"/><path d="M22 12a10 10 0 01-4.9 8.72L12 12" fill="#34a853"/></svg>
+          </div>
+          <h3>Chrome / Chromium</h3>
+          <p>Manifest V3 avec Service Worker. Compatible Chrome, Edge, Brave, Opera, Vivaldi.</p>
+          <div class="extension-features">
+            <span>TopBar sur toutes les pages</span>
+            <span>Popup avec drag & drop</span>
+            <span>Sync SSE temps reel</span>
+            <span>Remplacement new tab</span>
+          </div>
+        </div>
+        <div class="extension-card">
+          <div class="extension-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#ff7139"/><path d="M10.5 7C8.5 7 7 8.5 7 10.5c0 3 5 7.5 5 7.5s5-4.5 5-7.5C17 8.5 15.5 7 13.5 7c-1.1 0-1.5.5-1.5.5S11.6 7 10.5 7z" fill="#ff7139"/></svg>
+          </div>
+          <h3>Firefox</h3>
+          <p>Manifest V2 avec API browser.*. Support complet des memes fonctionnalites que Chrome.</p>
+          <div class="extension-features">
+            <span>TopBar sur toutes les pages</span>
+            <span>Popup avec drag & drop</span>
+            <span>Sync SSE temps reel</span>
+            <span>Remplacement new tab</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sync -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Synchronisation intelligente</h2>
+        <p>Deux canaux de sync pour une experience fluide, avec ou sans compte.</p>
+      </div>
+      <div class="sync-diagram">
+        <div class="sync-node">
+          <div class="sync-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <strong>Webapp</strong>
+          <span>React + SSE</span>
+        </div>
+        <div class="sync-arrow">
+          <svg width="40" height="24" viewBox="0 0 40 24"><path d="M2 8h36M38 8l-6-6M38 8l-6 6M2 16h36M2 16l6-6M2 16l6 6" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.4"/></svg>
+        </div>
+        <div class="sync-node">
+          <div class="sync-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/></svg>
+          </div>
+          <strong>Backend</strong>
+          <span>Express + SQLite</span>
+        </div>
+        <div class="sync-arrow">
+          <svg width="40" height="24" viewBox="0 0 40 24"><path d="M2 8h36M38 8l-6-6M38 8l-6 6M2 16h36M2 16l6-6M2 16l6 6" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.4"/></svg>
+        </div>
+        <div class="sync-node">
+          <div class="sync-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          </div>
+          <strong>Extension</strong>
+          <span>chrome.storage + SSE</span>
+        </div>
+      </div>
+      <div class="sync-details">
+        <div class="sync-detail">
+          <h4>Avec compte</h4>
+          <p>SSE (Server-Sent Events) synchronise vos preferences entre tous vos appareils en temps reel via le backend.</p>
+        </div>
+        <div class="sync-detail">
+          <h4>Sans compte</h4>
+          <p>Le bridge postMessage synchronise la webapp et l'extension localement, sans aucune donnee envoyee au serveur.</p>
+        </div>
+        <div class="sync-detail">
+          <h4>Offline</h4>
+          <p>Swallow fonctionne hors connexion. Les changements sont conserves localement et synchronises au retour en ligne.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section id="stack" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Stack technique</h2>
+        <p>Des technologies modernes et eprouvees.</p>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-item">
+          <h4>Frontend</h4>
+          <ul>
+            <li>React 19</li>
+            <li>Vite 6</li>
+            <li>React Router 7</li>
+            <li>Lucide Icons</li>
+          </ul>
+        </div>
+        <div class="stack-item">
+          <h4>Backend</h4>
+          <ul>
+            <li>Node.js</li>
+            <li>Express 4</li>
+            <li>SQLite (better-sqlite3)</li>
+            <li>JWT + bcryptjs</li>
+          </ul>
+        </div>
+        <div class="stack-item">
+          <h4>Extensions</h4>
+          <ul>
+            <li>Chrome MV3</li>
+            <li>Firefox MV2</li>
+            <li>Shadow DOM</li>
+            <li>Content Scripts</li>
+          </ul>
+        </div>
+        <div class="stack-item">
+          <h4>Securite</h4>
+          <ul>
+            <li>Helmet</li>
+            <li>CORS whitelist</li>
+            <li>Rate limiting</li>
+            <li>Input validation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container">
+      <h2>Pret a personnaliser votre navigation ?</h2>
+      <p>Swallow est open source et gratuit. Commencez en quelques minutes.</p>
+      <div class="hero-actions">
+        <a href="https://github.com/Louisdelez/swallow" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          Cloner le repo
+        </a>
+        <a href="https://github.com/Louisdelez/swallow#installation" target="_blank" rel="noopener" class="btn btn-secondary">Guide d'installation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <img src="../extension/chrome/icons/icon-32.png" alt="Swallow" width="24" height="24" />
+        <span>Swallow &copy; 2026 <a href="https://github.com/Louisdelez" target="_blank" rel="noopener">Louisdelez</a></span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/Louisdelez/swallow" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/Louisdelez/swallow/blob/master/LICENSE" target="_blank" rel="noopener">MIT License</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          links.classList.remove('open');
+        }
+      });
+    });
+
+    // Nav background on scroll
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+  </script>
+</body>
+</html>
