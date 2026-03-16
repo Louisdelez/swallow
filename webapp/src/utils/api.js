@@ -9,15 +9,24 @@ async function fetchAPI(endpoint, options = {}) {
   if (token) {
     headers['Authorization'] = `Bearer ${token}`;
   }
-  const response = await fetch(`${API_BASE}${endpoint}`, {
-    ...options,
-    headers,
-  });
-  const data = await response.json();
-  if (!response.ok) {
-    throw new Error(data.error || 'Une erreur est survenue');
+  try {
+    const response = await fetch(`${API_BASE}${endpoint}`, {
+      ...options,
+      headers,
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.error || 'Une erreur est survenue');
+    }
+    return data;
+  } catch (e) {
+    if (!navigator.onLine || e.name === 'TypeError') {
+      // Network error / offline — return null so callers can fallback to local data
+      console.warn(`[Swallow] Offline or network error for ${endpoint}:`, e.message);
+      return null;
+    }
+    throw e;
   }
-  return data;
 }
 
 export const api = {

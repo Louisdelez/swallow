@@ -5,11 +5,12 @@ import {
   Mail, Calendar, HardDrive, FileText, Map, Languages,
   Image, Play, Newspaper, StickyNote, Music, KeyRound, Search,
   Store, User, Globe, Palette, LayoutGrid, ChevronDown, Sparkles, Contact, Table, Presentation, Video, ClipboardList, ShoppingCart, TrendingUp, BookOpen, Globe2, PenLine, MessageCircle,
-  Clock, Calculator, DollarSign, CloudSun, Puzzle
+  Clock, Calculator, DollarSign, CloudSun, Puzzle, Download, Upload
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useSync } from '../contexts/SyncContext';
 import { serviceCategories, defaultServices, widgetDefaults } from '../utils/services';
 import api from '../utils/api';
 import './Settings.css';
@@ -39,6 +40,7 @@ export default function Settings() {
   const { user } = useAuth();
   const { theme, setTheme } = useTheme();
   const { t, language, setLanguage, languages } = useLanguage();
+  const { broadcastCurrentState, sseStatus } = useSync();
   const navigate = useNavigate();
 
   const [services, setServices] = useState(() => {
@@ -50,6 +52,7 @@ export default function Settings() {
     return { ...widgetDefaults, ...stored };
   });
   const [saved, setSaved] = useState(false);
+  const [importStatus, setImportStatus] = useState(null);
   const [activeSection, setActiveSection] = useState('appearance');
 
   // Sync from server on mount if logged in
@@ -81,6 +84,59 @@ export default function Settings() {
     setSaved(false);
   };
 
+  const handleExport = () => {
+    const data = {
+      version: 1,
+      theme,
+      language,
+      services,
+      widgets,
+    };
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'swallow-settings.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleImport = () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json,application/json';
+    input.onchange = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          const data = JSON.parse(ev.target.result);
+          if (!data.version || !data.theme || !data.language || !data.services || !data.widgets) {
+            setImportStatus('error');
+            setTimeout(() => setImportStatus(null), 3000);
+            return;
+          }
+          setTheme(data.theme);
+          setLanguage(data.language);
+          setServices(data.services);
+          setWidgets(data.widgets);
+          localStorage.setItem('swallow_services', JSON.stringify(data.services));
+          localStorage.setItem('swallow_widgets', JSON.stringify(data.widgets));
+          setImportStatus('success');
+          setTimeout(() => setImportStatus(null), 3000);
+        } catch {
+          setImportStatus('error');
+          setTimeout(() => setImportStatus(null), 3000);
+        }
+      };
+      reader.readAsText(file);
+    };
+    input.click();
+  };
+
   const handleSave = async () => {
     localStorage.setItem('swallow_services', JSON.stringify(services));
     localStorage.setItem('swallow_widgets', JSON.stringify(widgets));
@@ -90,6 +146,9 @@ export default function Settings() {
     window.dispatchEvent(new CustomEvent('swallow-widgets-updated', {
       detail: { widgets },
     }));
+    // Broadcast to extension via postMessage bridge
+    broadcastCurrentState();
+
     if (user) {
       try {
         await api.updatePreferences({
@@ -111,6 +170,7 @@ export default function Settings() {
     { id: 'services', icon: LayoutGrid, label: t('settings.services') },
     { id: 'language', icon: Globe, label: t('settings.language') },
     { id: 'widgets', icon: Puzzle, label: t('settings.widgets') },
+    { id: 'importexport', icon: Download, label: t('settings.importExport') },
     { id: 'account', icon: User, label: t('settings.account') },
   ];
 
@@ -175,7 +235,7 @@ export default function Settings() {
                     className={`language-option ${language === lang.code ? 'active' : ''}`}
                     onClick={() => setLanguage(lang.code)}
                   >
-                    <span className="language-flag">{lang.flag}</span>
+                    <img className="language-flag" src={`https://flagcdn.com/w40/${lang.countryCode}.png`} alt={lang.name} width="24" height="18" />
                     <span className="language-name">{lang.name}</span>
                     {language === lang.code && <Check size={16} className="language-check" />}
                   </button>
@@ -247,6 +307,38 @@ export default function Settings() {
           </section>
         )}
 
+        {activeSection === 'importexport' && (
+          <section className="settings-section">
+            <h2 className="settings-section-title">{t('settings.importExport')}</h2>
+            <div className="settings-card">
+              <h3 className="settings-card-title">{t('settings.export')}</h3>
+              <p className="settings-section-desc">{t('settings.exportDesc')}</p>
+              <button className="settings-save" onClick={handleExport}>
+                <Download size={16} />
+                <span>{t('settings.export')}</span>
+              </button>
+            </div>
+            <div className="settings-card" style={{ marginTop: '1rem' }}>
+              <h3 className="settings-card-title">{t('settings.import')}</h3>
+              <p className="settings-section-desc">{t('settings.importDesc')}</p>
+              <button className="settings-save" onClick={handleImport}>
+                <Upload size={16} />
+                <span>{t('settings.import')}</span>
+              </button>
+              {importStatus === 'success' && (
+                <p className="settings-section-desc" style={{ color: 'var(--accent)', marginTop: '0.5rem' }}>
+                  {t('settings.importSuccess')}
+                </p>
+              )}
+              {importStatus === 'error' && (
+                <p className="settings-section-desc" style={{ color: '#e74c3c', marginTop: '0.5rem' }}>
+                  {t('settings.importError')}
+                </p>
+              )}
+            </div>
+          </section>
+        )}
+
         {activeSection === 'account' && (
           <section className="settings-section">
             <h2 className="settings-section-title">{t('settings.account')}</h2>
@@ -259,7 +351,10 @@ export default function Settings() {
                   <div className="account-details">
                     <span className="account-name">{user.display_name}</span>
                     <span className="account-email">{user.email}</span>
-                    <span className="account-sync">{t('auth.syncEnabled')}</span>
+                    <span className="account-sync">
+                      {t('auth.syncEnabled')}
+                      <span className={`sync-indicator sync-${sseStatus}`} title={`SSE: ${sseStatus}`} />
+                    </span>
                   </div>
                 </div>
               ) : (

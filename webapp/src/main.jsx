@@ -5,6 +5,7 @@ import App from './App';
 import { AuthProvider } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { SyncProvider } from './contexts/SyncContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import './styles/global.css';
 
@@ -24,7 +25,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <LanguageProvider>
           <ThemeProvider>
             <AuthProvider>
-              <App />
+              <SyncProvider>
+                <App />
+              </SyncProvider>
             </AuthProvider>
           </ThemeProvider>
         </LanguageProvider>

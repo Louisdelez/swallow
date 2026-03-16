@@ -7,11 +7,11 @@ import es from './es.json';
 const translations = { fr, en, de, it, es };
 
 const languages = [
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-  { code: 'it', name: 'Italiano', flag: '🇮🇹' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' }
+  { code: 'fr', name: 'Français', countryCode: 'fr' },
+  { code: 'en', name: 'English', countryCode: 'gb' },
+  { code: 'de', name: 'Deutsch', countryCode: 'de' },
+  { code: 'it', name: 'Italiano', countryCode: 'it' },
+  { code: 'es', name: 'Español', countryCode: 'es' },
 ];
 
 function getNestedValue(obj, path) {

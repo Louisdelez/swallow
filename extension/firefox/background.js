@@ -1,6 +1,7 @@
 // Swallow Background Script (Firefox)
 const chrome = typeof browser !== 'undefined' ? browser : chrome;
 
+
 const SEARCH_ENGINES = {
   google: { name: 'Google', url: 'https://www.google.com/search?q=', icon: 'google.png' },
   bing: { name: 'Bing', url: 'https://www.bing.com/search?q=', icon: 'bing.png' },
@@ -97,4 +98,175 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     });
     return true;
   }
+  // Relay settings from webapp (via content script postMessage bridge)
+  if (message.type === 'settingsFromWebapp') {
+    chrome.storage.local.set(message.data, () => {
+      sendResponse({ success: true });
+    });
+    // Also sync to backend if user is logged in
+    syncToBackendIfLoggedIn(message.data);
+    return true;
+  }
 });
+
+// --- SSE for logged-in users ---
+const API_BASE = 'http://localhost:3001';
+let sseController = null;
+let sseRetryDelay = 1000;
+const SSE_MAX_RETRY_DELAY = 60000;
+
+function connectSSE() {
+  chrome.storage.local.get(['swallow_token'], (data) => {
+    const token = data.swallow_token;
+    if (!token) return;
+
+    // Validate token is not expired
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      if (payload.exp * 1000 <= Date.now()) return;
+    } catch (e) { return; }
+
+    if (sseController) sseController.abort();
+    sseController = new AbortController();
+
+    fetch(`${API_BASE}/api/preferences/stream`, {
+      headers: { Authorization: `Bearer ${token}` },
+      signal: sseController.signal,
+    }).then(async (response) => {
+      if (!response.ok) return;
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() || '';
+
+        let eventType = '';
+        let dataStr = '';
+
+        for (const line of lines) {
+          if (line.startsWith('event: ')) {
+            eventType = line.slice(7);
+          } else if (line.startsWith('data: ')) {
+            dataStr = line.slice(6);
+          } else if (line === '' && eventType && dataStr) {
+            if (eventType === 'preferences-update') {
+              try {
+                const prefs = JSON.parse(dataStr);
+                const storageUpdate = {};
+                if (prefs.theme) storageUpdate.theme = prefs.theme;
+                if (prefs.language) storageUpdate.language = prefs.language;
+                if (prefs.search_engine) storageUpdate.searchEngine = prefs.search_engine;
+                if (prefs.default_services) {
+                  const services = typeof prefs.default_services === 'string'
+                    ? JSON.parse(prefs.default_services)
+                    : prefs.default_services;
+                  const keyMap = {
+                    search: 'searchEngine', maps: 'mapsService', videos: 'videosService',
+                    store: 'storeService', email: 'emailService', drive: 'driveService',
+                    calendar: 'calendarService', translate: 'translateService',
+                    passwords: 'passwordsService', ai: 'aiService', news: 'newsService',
+                    photos: 'photosService', contacts: 'contactsService', docs: 'docsService',
+                    sheets: 'sheetsService', slides: 'slidesService', meet: 'meetService',
+                    forms: 'formsService', shopping: 'shoppingService', finance: 'financeService',
+                    books: 'booksService', keep: 'keepService', sites: 'sitesService',
+                    earth: 'earthService', blogger: 'bloggerService', chat: 'chatService',
+                    music: 'musicService',
+                  };
+                  for (const [webKey, value] of Object.entries(services)) {
+                    const extKey = keyMap[webKey];
+                    if (extKey) storageUpdate[extKey] = value;
+                  }
+                }
+                if (Object.keys(storageUpdate).length > 0) {
+                  chrome.storage.local.set(storageUpdate);
+                }
+              } catch (e) {
+                console.error('SSE parse error:', e);
+              }
+            }
+            eventType = '';
+            dataStr = '';
+          }
+        }
+      }
+    }).catch((e) => {
+      if (e.name !== 'AbortError') {
+        setTimeout(connectSSE, sseRetryDelay);
+        sseRetryDelay = Math.min(sseRetryDelay * 2, SSE_MAX_RETRY_DELAY);
+      }
+    });
+  });
+}
+
+function syncToBackendIfLoggedIn(data) {
+  chrome.storage.local.get(['swallow_token'], (stored) => {
+    const token = stored.swallow_token;
+    if (!token) return;
+
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      if (payload.exp * 1000 <= Date.now()) return;
+    } catch (e) { return; }
+
+    // Convert extension keys to backend format
+    const reverseMap = {
+      searchEngine: 'search', mapsService: 'maps', videosService: 'videos',
+      storeService: 'store', emailService: 'email', driveService: 'drive',
+      calendarService: 'calendar', translateService: 'translate',
+      passwordsService: 'passwords', aiService: 'ai', newsService: 'news',
+      photosService: 'photos', contactsService: 'contacts', docsService: 'docs',
+      sheetsService: 'sheets', slidesService: 'slides', meetService: 'meet',
+      formsService: 'forms', shoppingService: 'shopping', financeService: 'finance',
+      booksService: 'books', keepService: 'keep', sitesService: 'sites',
+      earthService: 'earth', bloggerService: 'blogger', chatService: 'chat',
+      musicService: 'music',
+    };
+
+    const body = {};
+    const services = {};
+    let hasServices = false;
+
+    for (const [key, value] of Object.entries(data)) {
+      if (key === 'theme') body.theme = value;
+      else if (reverseMap[key]) {
+        services[reverseMap[key]] = value;
+        hasServices = true;
+      }
+    }
+
+    if (hasServices) body.default_services = services;
+    if (data.searchEngine) body.search_engine = data.searchEngine;
+
+    if (Object.keys(body).length > 0) {
+      fetch(`${API_BASE}/api/preferences`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(body),
+      }).catch(() => {});
+    }
+  });
+}
+
+// Connect SSE on startup and when token changes
+chrome.storage.onChanged.addListener((changes, area) => {
+  if (area === 'local' && changes.swallow_token) {
+    if (changes.swallow_token.newValue) {
+      connectSSE();
+    } else if (sseController) {
+      sseController.abort();
+      sseController = null;
+    }
+  }
+});
+
+// Try to connect SSE on service worker startup
+connectSSE();

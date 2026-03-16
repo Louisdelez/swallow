@@ -64,7 +64,14 @@
     "searchEngine": "Moteur de recherche",
     "customServices": "Personnaliser les services",
     "widgets": "Widgets",
-    "widgetsDesc": "Activez ou désactivez les widgets affichés sur la page d'accueil"
+    "widgetsDesc": "Activez ou désactivez les widgets affichés sur la page d'accueil",
+    "importExport": "Import / Export",
+    "export": "Exporter",
+    "import": "Importer",
+    "exportDesc": "Téléchargez vos paramètres au format JSON",
+    "importDesc": "Importez des paramètres depuis un fichier JSON",
+    "importSuccess": "Paramètres importés avec succès !",
+    "importError": "Fichier invalide. Veuillez vérifier le format JSON."
   },
   "widgets": {
     "clock": "Horloge",

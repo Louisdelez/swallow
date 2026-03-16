@@ -182,7 +182,10 @@
 }
 
 .language-flag {
-  font-size: 20px;
+  width: 24px;
+  height: 18px;
+  border-radius: 2px;
+  object-fit: cover;
 }
 
 .language-check {
@@ -296,7 +299,22 @@
   font-size: 12px;
   color: var(--success);
   margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
+
+.sync-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #9aa0a6;
+}
+.sync-connected { background: #34a853; }
+.sync-connecting { background: #fbbc04; animation: pulse 1.5s infinite; }
+.sync-disconnected { background: #ea4335; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
 .account-guest {
   text-align: center;

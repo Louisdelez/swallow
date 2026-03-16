@@ -1,9 +1,10 @@
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
+import logger from '../utils/logger.js';
 
 function getJwtSecret() {
   if (process.env.JWT_SECRET) return process.env.JWT_SECRET;
-  console.warn('WARNING: JWT_SECRET not set. Using random secret (tokens will not survive restarts).');
+  logger.warn('JWT_SECRET not set — using random secret (tokens will not survive restarts)');
   return crypto.randomBytes(64).toString('hex');
 }
 

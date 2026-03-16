@@ -64,7 +64,14 @@
     "searchEngine": "Search engine",
     "customServices": "Customize services",
     "widgets": "Widgets",
-    "widgetsDesc": "Enable or disable widgets displayed on the home page"
+    "widgetsDesc": "Enable or disable widgets displayed on the home page",
+    "importExport": "Import / Export",
+    "export": "Export",
+    "import": "Import",
+    "exportDesc": "Download your settings as a JSON file",
+    "importDesc": "Import settings from a JSON file",
+    "importSuccess": "Settings imported successfully!",
+    "importError": "Invalid file. Please check the JSON format."
   },
   "widgets": {
     "clock": "Clock",
